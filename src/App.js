@@ -1,24 +1,20 @@
 import logo from './logo.svg';
+import { Auth0Provider } from '@auth0/auth0-react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Routes from './Routes/Routes'
+import cors from 'cors'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Auth0Provider
+    domain="enersolar.us.auth0.com"
+    clientId="giYs4xAbL2uAxfO3eNC4gXaQVkUHDn0P"
+    redirectUri={window.location.origin}
+  >
+    <Routes/>
+  </Auth0Provider>
   );
 }
 
