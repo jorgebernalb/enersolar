@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:8080";
-
+const baseURL = "https://app-backend-enersolar.herokuapp.com";
+//const baseURL = "http://localhost:8080"
 const eRequest = async (options, resCallback, errCallback) => {
     await axios.request(options).then(resCallback).catch(errCallback);
   };
@@ -21,15 +21,17 @@ const eRequest = async (options, resCallback, errCallback) => {
 
  export const crearProductos = async (resCallback, errCallback) => {
     const options = {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      method: "POST",
+       headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json',
+       },
+      method: "post",
       url: `${baseURL}/api/productos`,
-      data:{},
+      data: {},
+      
     };
     await eRequest(options, resCallback, errCallback);
+    console.log(options)
   };
 
   //Crud de Ventas

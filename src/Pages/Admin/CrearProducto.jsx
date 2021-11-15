@@ -10,7 +10,7 @@ const CrearProducto = (props) => {
     const [descripcionProd, setDescripcionProducto] = useState('');
     const [precioProd, setPrecio] = useState('');
     const [estadoProd, setEstadoProducto] = useState('no disponible');
-    const [data, setData] = useState({});
+    //const [data, setData] = useState({});
     
     //manejo post desde botón
     
@@ -23,16 +23,17 @@ const CrearProducto = (props) => {
             estado : "no disponible"
             
         };
-        await crearProductos(
-            
-                    {
-                        body: JSON.stringify(newProducto),
-                        data: newProducto
-                    }
-                    
+        const createdProduct = await crearProductos(
+            {
+                body: JSON.stringify(newProducto),
+                
+           }, 
+           (err) => {
+            console.error("error", err);
+            }
+           
         );
-        console.log(newProducto);
-        return newProducto;
+        
         
     };
 
